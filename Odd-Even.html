@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Odd & Even!</title>
+    <script>
+function printEvenNums(){
+        var start = document.getElementById("start").value;
+        var end = document.getElementById("end").value;
+        var evenNums = "<br>Even Numbers:<br>";
+ 
+        for(i=start; i<=end; i++){
+
+          if(i % 2 == 0){
+            evenNums += i + "<br>";
+          }
+      }
+        document.getElementById("result").innerHTML = evenNums;
+      }
+//
+function printOddNums(){
+        var start = document.getElementById("start").value;
+        var end = document.getElementById("end").value;
+        var OddNums = "<br> Odd Numbers:<br>";
+ 
+        for(i=start; i<=end; i++){
+
+          if(i % 2 == 1){
+            OddNums += i + "<br>";
+          }
+        }
+        document.getElementById("result").innerHTML = OddNums;
+      }
+//
+function printAllNums(){
+        var start = document.getElementById("start").value;
+        var end = document.getElementById("end").value;
+        var AllNums = "<br> All Numbers:<br>";
+        
+        if (start<end){        
+          for(i=start; i<=end; i++){
+          
+          AllNums +=i + "<br>";
+        }
+        }
+        else{
+          for(i=end; i<=start; i--){
+          
+          AllNums -=i + "<br>";
+        }
+        }
+
+        
+        document.getElementById("result").innerHTML = AllNums;
+      }    
+</script>
+  </head>
+  <body>
+    <h3>JavaScript to print Even-Odd-All Numbers within a Range!</h3>
+    Start: <input type="number"  id="start"><br><br>
+    End: <input type="number" id="end"   /><br><br><br>
+
+    <input type="button" onclick="printEvenNums()" value=" Even Numbers" />
+    <input type="button" onclick="printOddNums()" value=" Odd Numbers" />
+    <input type="button" onclick="printAllNums()" value=" All Numbers" />
+    <div id="result"></div>
+  </body>
+</html>

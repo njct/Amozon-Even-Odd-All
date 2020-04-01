@@ -1,0 +1,93 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>Amazon</title>
+    <link rel="icon" type="image/png" href="icon.png" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.sootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">   
+    
+</head>
+<body onload="valselected()" style="text-align: center;"> 
+
+<img src="amz.png" height=150px style="padding: -10px;" alt="Amazon"><br> 
+<h2 id="selectedItem"><i class="fas fa-cart-plus"> - &nbsp;&nbsp;<span id="itemList"> </span> </i></h2>
+<h3 id="rndPayment"> Your Payment - $&nbsp;<span id="pay"> </span> </h3>
+<lable><b>ENTER ITEM&nbsp; :</b></lable>
+<input type="text" name="myInput" id="item" placeholder="Add item"><br><br><br>
+<button onclick="Additem()"><i class="fas fa-angle-double-right"><br><span>Add Item Last</span></i> </button>&nbsp;&nbsp;
+<button onclick="Removeitem()"><i class="fas fa-minus-square"><br><span>Remove Last Item</span></i></button>&nbsp;&nbsp;
+<button onclick="AddFirstitem()"><i class="fas fa-angle-double-left"><br><span>Add Item First</span></i></button>&nbsp;&nbsp;<br><br><br>
+<button onclick="RemoveFirstitem()"><i class="fas fa-minus-square"><br><span>Remove First Item</span></i></button>&nbsp;&nbsp;
+<button onclick="Redpay()"><i class="fab fa-cc-amazon-pay"><br><span>Payment</span></i></button>&nbsp;&nbsp;
+<button onclick="Chkvalid()"><i class="fas fa-check-square"><br><span>Validation</span></i></button>
+
+<script>
+
+var x=[];
+function valselected(){
+document.getElementById('selectedItem').style.visibility="hidden";
+document.getElementById('rndPayment').style.visibility="hidden";
+document.getElementById('selectedItem').style.visibility="hidden";
+}
+//
+function Additem(){
+var item= document.getElementById('item').value;
+if(item.length<3){
+                alert("item must be minimum 3 characters ");
+                }else{
+                x.push(item.toUpperCase())
+                document.getElementById('rndPayment').style.visibility="hidden";
+                document.getElementById('selectedItem').style.visibility="visible";
+                return document.getElementById('itemList').innerHTML=x;
+                }
+}
+//
+function Removeitem(){
+var item= document.getElementById('item').value;
+x.pop(item);
+return document.getElementById('itemList').innerHTML=x;
+}
+//
+function AddFirstitem(){
+var item= document.getElementById('item').value;
+x.unshift(item.toUpperCase());
+if(item.length<3){
+                alert("item must be minimum 3 characters ");
+                }else{
+
+                document.getElementById('rndPayment').style.visibility="hidden";
+                document.getElementById('selectedItem').style.visibility="visible";
+                return document.getElementById('itemList').innerHTML=x;
+                    }
+}
+//
+function RemoveFirstitem(){
+var item= document.getElementById('item').value;
+x.shift(item);
+return document.getElementById('itemList').innerHTML=x;
+}
+
+function Redpay(){
+var item= document.getElementById('item').value;
+document.getElementById('rndPayment').style.visibility="visible";
+document.getElementById("pay").innerHTML =
+Math.floor(Math.random() * 101);
+}
+
+function Chkvalid(){   
+var item= document.getElementById('item').value;
+if(item.length<3){
+                alert("item must be minimum 3 characters ");
+                }else{
+                alert("good");
+                }
+return document.getElementById('rndPayment').innerHTML=x;                
+}
+
+</script>
+</body>
+</html>
